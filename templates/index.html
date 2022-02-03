@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ML Model | Boston</title>
+    <meta
+      name="description"
+      content="This is a simple demonstration of ML deployment"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+
+    <title>Demonstration of ML model serving</title>
+  </head>
+
+  <body style="background-color: rgb(0, 0, 0)">
+    <section class="hero" align="center">
+      <h1
+        style="
+          background-color: rgb(0, 0, 0);
+          color: white;
+          padding: 0rem;
+          margin: 6rem;
+          font-size: 2.4rem;
+          font-family: Arial;
+        "
+      >
+        Boston Prediction Model
+      </h1>
+      <h2
+        style="
+          background-color: rgb(0, 0, 0);
+          color: white;
+          padding: 0rem;
+          margin: 2rem;
+          font-size: 1.5rem;
+          font-family: cursive;
+        "
+      >
+        This model is based on Random forest
+      </h2>
+      <h3
+        style="
+          background-color: rgb(0, 0, 0);
+          color: white;
+          padding: 0rem;
+          margin: 2rem;
+          font-size: 1rem;
+          font-family: cursive;
+        "
+      >
+      <form
+        action="{{ url_for('predict_html')}}"
+        method="post"
+        class="form"
+        style="
+          background-color: rgb(212, 212, 212);
+          color: rgb(0, 0, 0);
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          padding: 0rem;
+          margin: 4rem;
+          font-size: 1rem;
+          font-family: Arial, Helvetica, sans-serif;
+        "
+      >
+        <div style="margin: 0.3rem">
+          <label for="lstatlbl">LSTAT:</label>
+          <input type="text" id="lstatid" name="LSTAT"><br><br>
+        </div>
+        
+        <div style="margin: 0.3rem">
+          <label for="induslbl">INDUS:</label>
+          <input type="text" id="indusid" name="INDUS"><br><br>
+        </div>
+
+        <div style="margin: 0.3rem">
+          <label for="noxlbl">NOX:</label>
+          <input type="text" id="noxid" name="NOX"><br><br>
+        </div>
+
+        <div style="margin: 0.3rem">
+          <label for="ptratiolbl">PTRATIO:</label>
+          <input type="text" id="ptratioid" name="PTRATIO"><br><br>
+        </div>
+
+        <div style="margin: 0.3rem">
+          <label for="lstatlbl">RM:</label>
+          <input type="text" id="rmid" name="RM"><br><br>
+        </div>
+
+        <div style="margin: 0.3rem">
+          <label for="taxlbl">TAX:</label>
+          <input type="text" id="taxid" name="TAX"><br><br>
+        </div>
+
+        <div style="margin: 0.3rem">
+          <label for="dislbl">DIS:</label>
+          <input type="text" id="disid" name="DIS"><br><br>
+        </div>
+
+        <div style="margin: 0.3rem">
+          <label for="agelbl">AGE:</label>
+          <input type="text" id="ageid" name="AGE"><br><br>
+        </div>
+
+        <button
+          type="submit"
+          class="btn"
+          style="
+            margin: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: rgb(72, 137, 223);
+            border: none;
+            font-size: 1rem;
+            color: white;
+            border-radius: 1rem;
+            cursor: pointer;
+          "
+        >
+          Prediction
+        </button>
+      </form>
+    </section>
+    <h3
+      style="
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0rem;
+        margin: 4rem;
+        font-size: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+      "
+    >
+      {{ prediction_text }}
+    </h3>
+  </body>
+</html>
